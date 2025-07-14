@@ -27,6 +27,15 @@ def promote_cml_config_store(build: str, tenant_name: str) -> str:
     jenkins = JenkinsInitializer()
     return jenkins.promote_cml_config_store(build, tenant_name)
 
+@mcp.tool()
+def integrate_mlxcrudapp_cdsw(branch: str = "master", cdsw_version: str = "latest") -> str:
+    """
+    Integrate MLX-CRUD-APP with CDSW
+    :param branch: The MLX_CRUD_APP branch to integrate with CDSW, default is "master" - should be in "1.x.0" or "mlx-crud-app-1.x.0" format"
+    :param cdsw_version: The CDSW version to integrate with, default is "latest" - should be in "2.0.x-bxxx" format - User must provide this do not assume
+    """
+    jenkins = JenkinsInitializer()
+    return jenkins.integrate_mlxcrudapp_cdsw(branch, cdsw_version)
 
 # Add a dynamic greeting resource
 @mcp.resource("greeting://{name}")
