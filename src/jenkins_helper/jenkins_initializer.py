@@ -12,7 +12,7 @@ class JenkinsInitializer():
             jenkins_password=os.environ["JENKINS_PROD_PASSWORD"]
         )
         self.jenkins_master1 = JenkinsUtil(
-            jenkins_url="https://jenkins-k8s.sd-master1.cloudera.com/",
+            jenkins_url="https://master-01.jenkins.cloudera.com/",
             jenkins_username=os.environ["JENKINS_MASTER1_USER"],
             jenkins_password=os.environ["JENKINS_MASTER1_PASSWORD"]
         )
