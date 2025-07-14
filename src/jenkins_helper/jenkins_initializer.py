@@ -15,20 +15,26 @@ class JenkinsInitializer():
     def promote_mlx_crud_app(self, build: str, tenant_name: str):
         """Promote MLX-CRUD-APP build to required tenant"""
         job_name = None
+        tenant_name = tenant_name.replace("mow-","")
         if tenant_name == "dev":
             job_name = "manowar-mlx-dev-build"
         elif tenant_name == "int":
             job_name = "manowar-mlx-int-build"
+        else:
+            return "Tenant  is not supported"
         params = {"VERSION": build}
         return self.jenkins_prod.run_job(job_name, params)
 
     def promote_cml_config_store(self, build: str, tenant_name: str):
         """Promote CML-Config-Store build to required tenant"""
         job_name = None
+        tenant_name = tenant_name.replace("mow-","")
         if tenant_name == "dev":
             job_name = "manowar-cml-config-store-dev-build"
         elif tenant_name == "int":
             job_name = "manowar-cml-config-store-int-build"
+        else:
+            return "Tenant  is not supported"
         params = {"VERSION": build}
         return self.jenkins_prod.run_job(job_name, params)
 
