@@ -43,6 +43,18 @@ def trigger_stage_promotion_tests() -> str:
     jenkins = JenkinsInitializer()
     return jenkins.trigger_stage_promotion_tests()
 
+@mcp.tool()
+def trigger_dev_promotion_tests() -> str:
+    """Trigger dev promotion tests"""
+    jenkins = JenkinsInitializer()
+    return jenkins.trigger_dev_promotion_tests()
+
+@mcp.tool()
+def trigger_int_promotion_tests() -> str:
+    """Trigger int promotion tests"""
+    jenkins = JenkinsInitializer()
+    return jenkins.trigger_int_promotion_tests()
+
 # Add a dynamic greeting resource
 @mcp.resource("greeting://{name}")
 def get_greeting(name: str) -> str:
