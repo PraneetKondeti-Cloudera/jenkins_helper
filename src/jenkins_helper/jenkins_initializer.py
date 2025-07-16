@@ -56,3 +56,28 @@ class JenkinsInitializer():
             "FORCE_INTEGRATE": True
         }
         return self.jenkins_master1.run_job(job_name, params)
+
+    def trigger_stage_promotion_tests(self):
+        """Trigger the stage promotion tests job"""
+        job_name = "mlx_cp_app_mow_stage_promotion_tests"
+        params = {
+            "RUN_MLX_CP_APP_TESTS": True,
+            "FORCE_RUN": True
+        }
+        return self.jenkins_master1.run_job(job_name, params)
+
+    def trigger_int_promotion_tests(self):
+        """Trigger the int promotion build job"""
+        job_name = "mlx_cp_app_mow_int_promotion_tests"
+        params = {
+            "FORCE_RUN": True
+        }
+        return self.jenkins_master1.run_job(job_name, params)
+
+    def trigger_dev_promotion_tests(self):
+        """Trigger the dev promotion build job"""
+        job_name = "mlx_cp_app_mow_int_promotion_tests"
+        params = {
+            "FORCE_RUN": True
+        }
+        return self.jenkins_master1.run_job(job_name, params)

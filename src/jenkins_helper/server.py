@@ -37,6 +37,12 @@ def integrate_mlxcrudapp_cdsw(branch: str = "master", cdsw_version: str = "lates
     jenkins = JenkinsInitializer()
     return jenkins.integrate_mlxcrudapp_cdsw(branch, cdsw_version)
 
+@mcp.tool()
+def trigger_stage_promotion_tests() -> str:
+    """Trigger stage promotion tests"""
+    jenkins = JenkinsInitializer()
+    return jenkins.trigger_stage_promotion_tests()
+
 # Add a dynamic greeting resource
 @mcp.resource("greeting://{name}")
 def get_greeting(name: str) -> str:
